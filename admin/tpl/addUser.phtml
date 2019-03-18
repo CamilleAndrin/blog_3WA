@@ -1,0 +1,38 @@
+<form action="addUser.php" method="post" class="w-75" enctype="multipart/form-data">
+    <?php if(isset($errorForms) && $errorForms != ''):?>
+    <div class="alert alert-danger ml-4 w-100" role="alert" >
+        <?php foreach($errorForms as $errorForm):?>
+        <p class="erreur"><?=$errorForm?></p>
+        <?php endforeach;?>
+    </div>
+    <?php endif;?>
+    <div class='d-flex flex-column w-100 mt-3 ml-4'>
+        <label for="title">Prénom:</label>
+        <input type="text" id="nom" name="nom" class="rounded">
+    </div>
+    <div class='d-flex flex-column w-100 mt-4 ml-4'>
+        <label for="article">Nom</label>
+        <input type="text" id="prenom" name="prenom" class="rounded">
+    </div>
+    <div class='d-flex flex-column w-100 mt-4 ml-4'>
+        <label for="article">Email</label>
+        <input type="email" id="email" name="email" class="rounded">
+    </div>
+    <div class='d-flex flex-column w-100 mt-4 ml-4'>
+        <label for="article">Mot de passe</label>
+        <input type="password" id="password" name="password" class="rounded">
+    </div>
+    <div class='d-flex flex-column w-100 mt-4 ml-4'>
+        <label for="role">Role:</label>
+        <SELECT name="role" size="1" class="rounded bg-transparent">
+            <option value="" disabled selected>Rôle</option>
+            <OPTION>1
+            <OPTION>2
+        </SELECT>
+    </div>
+    <input type="file" name="file" class="ml-4 w-100 mt-4" />
+    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+    <div class='mt-4 ml-4'>
+    <button class="btn btn-secondary my-2 my-sm-0 mt-4" type="submit">Ajouter</button>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+<h1 class='mt-5'>Les articles</h1>
+<ul>
+<?php foreach($result as $article):?>
+<li class="border-bottom pb-4 pt-4">
+<h2><?= $article['a_title']?></h2>
+<div class='d-flex flex-row justify-content-between'>
+    <div class='w-70'>
+        Auteur : <?= $article['a_author']?> <br> 
+        <p>Catégorie : <?= $categories[$article['a_categorie']]?> </p>
+        <div>
+            <a href="editArticle.php?id=<?=$article['a_id']?>"><i class="far fa-edit"></i>
+            <a href="suppArticle.php?id=<?=$article['a_id']?>"><i class="far fa-trash-alt"></i></a>
+        </div>
+    </div>
+    <?php if($article['a_picture'] != NULL):?>
+    <img width="100" src="<?=UPLOADS_URL.$article['a_picture']?>">
+    <?php endif; ?>
+</div>
+</li>
+<?php endforeach; ?>
+</ul>
+
+<!-- data-toggle="modal" data-target="#delete" -->

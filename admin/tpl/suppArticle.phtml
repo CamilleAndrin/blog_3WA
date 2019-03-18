@@ -1,0 +1,10 @@
+<h1 class='mt-5'>Les articles</h1>
+<ul>
+<?php foreach($result as $article):?>
+<li class="border-bottom pb-4 pt-4"><h2><?= $article['a_title']?></h2>
+Auteur : <?= $article['a_author']?> <br> <p>Catégorie : <?= $article['a_categorie']?> </p>
+<button class="btn btn-secondary my-2 my-sm-0" type="submit">supprimer</button>
+</li>
+<?php endforeach; ?>
+</ul>
+     

@@ -1,0 +1,48 @@
+<form action="addArticle.php" method="post" class="w-75" enctype="multipart/form-data">
+    <?php if(isset($errorForms) && $errorForms != ''):?>
+    <div class="alert alert-danger ml-4 w-100" role="alert" >
+        <?php foreach($errorForms as $errorForm):?>
+        <p class="erreur"><?=$errorForm?></p>
+        <?php endforeach;?>
+    </div>
+    <?php endif;?>
+    <div class='d-flex flex-column w-100 mt-3 ml-4'>
+        <label for="title">Titre de l'article:</label>
+        <input type="text" id="title" name="title" class="rounded" value="<?=$title?>">
+    </div>
+    <div class='d-flex flex-column w-100 mt-4 ml-4'>
+        <label for="article">Article:</label>
+        <textarea id="article" name="article" class="rounded"><?=$article?></textarea>
+    </div>
+    <div class='d-flex flex-row w-100 mt-3 ml-4'>
+        <div class='d-flex flex-column mr-5'>
+            <label for="categorie">Catégorie:</label>
+            <SELECT name="categorie" size="1" class="rounded  bg-transparent">
+                <option value="" disabled selected>Catégorie</option>
+                <?php foreach($categories as $categorie):?>
+                    <option value="<?=$categorie['c_id']?>"><?=$categorie['c_title']?></option>
+                <?php endforeach;?>
+            </SELECT>
+        </div>
+        <div class='d-flex flex-column mr-5'>
+            <label for="author">Auteur :</label>
+            <SELECT name="author" size="1" class="rounded bg-transparent">
+                <option value="" disabled selected>Auteur</option>
+                <OPTION>1
+                <OPTION>2
+            </SELECT>
+        </div>
+        <div class="form-group column">
+            <label for="date" ">Date et heure de publication</label>
+            <div class="d-flex flex-row">
+                <input type="date" class="form-control" id="date" name="date" value="<?=$date?>">
+                <!-- <input type="time" class="form-control" id="time" name="time"  value="<?=$time?>"> -->
+            </div>
+        </div>
+    </div>
+    <input type="file" name="file" class="ml-4 w-100" />
+    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+    <div class='mt-4 ml-4'>
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Ajouter</button>
+    </div>
+</form>
